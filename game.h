@@ -16,30 +16,33 @@ const int CELL_SIZE = 20;
 
 class Game : public EventHandler {
     Cell field[FIELD_SIZE][FIELD_SIZE];
+    int cursorX, cursorY;
 
     SDL_Surface *backgroundImg;
-    SDL_Surface *redDotImg;
-    SDL_Surface *blueDotImg;
-    SDL_Surface *redFillImg;
-    SDL_Surface *blueFillImg;
-    SDL_Surface *redLinesImg;
-    SDL_Surface *blueLinesImg;
+    SDL_Surface *rDotImg;
+    SDL_Surface *bDotImg;
+    SDL_Surface *rFillImg;
+    SDL_Surface *bFillImg;
+    SDL_Surface *rLinesImg;
+    SDL_Surface *bLinesImg;
+    SDL_Surface *rDotHoverImg;
+    SDL_Surface *bDotHoverImg;
 
-    SDL_Rect redFillScopes[5];
-    SDL_Rect blueFillScopes[5];
-    SDL_Rect redLinesScopes[10];
-    SDL_Rect blueLinesScopes[10];
+    SDL_Rect rFillScopes[5];
+    SDL_Rect bFillScopes[5];
+    SDL_Rect rLinesScopes[10];
+    SDL_Rect bLinesScopes[10];
 
     Sidebar sidebar;
-    Cursor cursor;
   public:
     Game();
     ~Game();
-    void setScopes(SDL_Rect *redLinesScopes, SDL_Rect *blueLinesScopes, SDL_Rect *redFillScopes, SDL_Rect *blueFillScopes);
+    void setScopes(SDL_Rect *rLinesScopes, SDL_Rect *bLinesScopes, SDL_Rect *rFillScopes, SDL_Rect *bFillScopes);
     void eventLButtonDown(int& gameState, int mX, int mY);
+    void eventMouseMove(int& gameState, int mX, int mY, int relX, int relY, bool Left, bool Right, bool Middle);
     void eventExit(int& gameState);
     void checkLines();
-    void render(SDL_Surface *screen);
+    void render(SDL_Surface *screen, int gameState);
 };
 
 #endif

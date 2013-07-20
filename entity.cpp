@@ -3,5 +3,5 @@
 Cell::Cell()
 {
     dot = EMPTY_DOT;
-    lineDirection = 0;
+    lineDirection = NO_LINE;
 }

@@ -25,7 +25,7 @@ bool Engine::execute()
         SDL_PollEvent(&event);
         game.inputEvent(event, gameState);
         game.checkLines();
-        game.render(screen);
+        game.render(screen, gameState);
 
         if (SDL_Flip(screen) == -1) {
             return 1;
