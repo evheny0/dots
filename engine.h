@@ -3,12 +3,26 @@
 
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
-#include "events.h"
+#include "game.h"
+#include "graphics.h"
 
-class Dots : public EventHandler {
+enum GameState { 
+    BEGIN,
+    RED_PLAYER,
+    BLUE_PLAYER,
+    RED_PLAYER_WIN,
+    BLUE_PLAYER_WIN,
+    DRAW,
+    END
+};
+
+
+class Engine {
+    SDL_Surface *screen;
+    int gameState;
   public:
-    Dots();
-    ~Dots();
+    Engine();
+    ~Engine();
     bool execute();
 };
 

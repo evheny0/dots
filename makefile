@@ -1,4 +1,4 @@
-OBJ = engine.o events.o
+OBJ = engine.o events.o graphics.o game.o entity.o interface.o
 CFLAGS = -Wall
 LIBS = -lSDL -lSDL_image -lSDL_ttf
 

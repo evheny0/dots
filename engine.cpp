@@ -2,21 +2,34 @@
 
 int main(int argc, char *argv[])
 {
-    Dots game;
-    return game.execute();
+    Engine app;
+    return app.execute();
 }
 
-Dots::Dots()
+Engine::Engine()
 {
-
+    screen = screenInit();
+    gameState = RED_PLAYER;
 }
 
-Dots::~Dots()
+Engine::~Engine()
 {
-
+    SDL_Quit();
 }
 
-bool Dots::execute()
+bool Engine::execute()
 {
+    Game game;
+    SDL_Event event;
+    while (gameState != END) {
+        SDL_PollEvent(&event);
+        game.inputEvent(event, gameState);
+        game.checkLines();
+        game.render(screen);
+
+        if (SDL_Flip(screen) == -1) {
+            return 1;
+        }
+    }
     return 0;
 }

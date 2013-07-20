@@ -5,25 +5,25 @@
 
 class EventHandler {
   public:
-    virtual void inputEvent(SDL_Event *Event);
-    virtual void OnInputFocus();
-    virtual void OnInputBlur();
-    virtual void OnKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode);
-    virtual void OnKeyUp(SDLKey sym, SDLMod mod, Uint16 unicode);
-    virtual void OnMouseFocus();
-    virtual void OnMouseBlur();
-    virtual void OnMouseMove(int mX, int mY, int relX, int relY, bool Left, bool Right, bool Middle);
-    virtual void OnLButtonDown(int mX, int mY);
-    virtual void OnLButtonUp(int mX, int mY);
-    virtual void OnRButtonDown(int mX, int mY);
-    virtual void OnRButtonUp(int mX, int mY);
-    virtual void OnMButtonDown(int mX, int mY);
-    virtual void OnMButtonUp(int mX, int mY);
-    virtual void OnMinimize();
-    virtual void OnRestore();
-    virtual void OnResize(int w, int h);
-    virtual void OnExpose();
-    virtual void OnExit();
+    virtual void inputEvent(SDL_Event event, int& gameState);
+    virtual void eventInputFocus(int& gameState);
+    virtual void eventInputBlur(int& gameState);
+    virtual void eventKeyDown(int& gameState, SDLKey sym, SDLMod mod, Uint16 unicode);
+    virtual void eventKeyUp(int& gameState, SDLKey sym, SDLMod mod, Uint16 unicode);
+    virtual void eventMouseFocus(int& gameState);
+    virtual void eventMouseBlur(int& gameState);
+    virtual void eventMouseMove(int& gameState, int mX, int mY, int relX, int relY, bool Left, bool Right, bool Middle);
+    virtual void eventLButtonDown(int& gameState, int mX, int mY);
+    virtual void eventLButtonUp(int& gameState, int mX, int mY);
+    virtual void eventRButtonDown(int& gameState, int mX, int mY);
+    virtual void eventRButtonUp(int& gameState, int mX, int mY);
+    virtual void eventMButtonDown(int& gameState, int mX, int mY);
+    virtual void eventMButtonUp(int& gameState, int mX, int mY);
+    virtual void eventMinimize(int& gameState);
+    virtual void eventRestore(int& gameState);
+    virtual void eventResize(int& gameState, int w, int h);
+    virtual void eventExpose(int& gameState);
+    virtual void eventExit(int& gameState);
 };
 
 #endif
